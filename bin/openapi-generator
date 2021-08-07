@@ -26,4 +26,4 @@ docker-compose run --rm openapi-generator generate \
   -o workspace/src/repositories \
   --api-package=gateways \
   --model-package=types \
-  --additional-properties=enumNameSuffix='',enumPropertyNaming=camelCase,modelPropertyNaming=camelCase,nullSafeAdditionalProps=true,supportsES6=true,withSeparateModelsAndApi=true,withoutPrefixEnums=false
+  --additional-properties=enumNameSuffix='',enumPropertyNaming=camelCase,modelPropertyNaming=camelCase,nullSafeAdditionalProps=true,supportsES6=true,withSeparateModelsAndApi=true
