@@ -88,6 +88,7 @@ components:
         required:
           - id
           - name
+          - role
         properties:
           id:
             description: user id
@@ -97,3 +98,8 @@ components:
             description: user name
             type: string
             example: Tom
+          role:
+            description: user role
+            type: string
+            enum: [admin, general]
+            example: 1

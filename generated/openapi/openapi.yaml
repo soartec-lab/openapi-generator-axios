@@ -53,9 +53,11 @@ components:
     users:
       example:
         users:
-        - name: Tom
+        - role: "1"
+          name: Tom
           id: 1
-        - name: Tom
+        - role: "1"
+          name: Tom
           id: 1
       properties:
         users:
@@ -67,6 +69,7 @@ components:
       type: object
     user:
       example:
+        role: "1"
         name: Tom
         id: 1
       properties:
@@ -78,9 +81,17 @@ components:
           description: user name
           example: Tom
           type: string
+        role:
+          description: user role
+          enum:
+          - admin
+          - general
+          example: "1"
+          type: string
       required:
       - id
       - name
+      - role
       type: object
     id:
       example: "1"
