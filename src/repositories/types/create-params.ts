@@ -37,7 +37,7 @@ export interface CreateParams {
      * @type {Array<{ [key: string]: string | undefined; }>}
      * @memberof CreateParams
      */
-    userPosts: Array<{ [key: string]: string | undefined; }>;
+    user_posts: Array<{ [key: string]: string | undefined; }>;
 }
 
 /**

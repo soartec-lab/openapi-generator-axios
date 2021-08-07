@@ -50,15 +50,6 @@ export enum UserRole {
 }
 ```
 
-* modelPropertyNaming=camelCase
-
-```typescript
-export interface User {
-  firstName: string
-}
-```
-
-
 * nullSafeAdditionalProps=true
 
 Specify undefined for nullable properties.
