@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  description: internal_api
+  title: API
+  version: v1
+servers:
+- url: http://localhost:8082/
+paths:
+  /users:
+    get:
+      operationId: getUser
+      parameters:
+      - description: クエリパラメータ
+        in: query
+        name: id
+        required: true
+        schema:
+          $ref: '#/components/schemas/id'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+          description: 成功
+      summary: User detail
+      tags:
+      - Users
+    post:
+      description: user create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_params'
+      responses:
+        "201":
+          description: created
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/not_found'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+          description: Internal Server Error
+components:
+  schemas:
+    users:
+      example:
+        users:
+        - name: Tom
+          id: 1
+        - name: Tom
+          id: 1
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/user'
+          type: array
+      required:
+      - users
+      type: object
+    user:
+      example:
+        name: Tom
+        id: 1
+      properties:
+        id:
+          description: user id
+          example: 1
+          type: integer
+        name:
+          description: user name
+          example: Tom
+          type: string
+      required:
+      - id
+      - name
+      type: object
+    id:
+      example: "1"
+      type: string
+    create_params:
+      properties:
+        name:
+          description: user name
+          example: john
+          type: string
+        status:
+          description: user status
+          enum:
+          - 0
+          - 1
+          example: 0
+          type: integer
+        user_posts:
+          description: user posts
+          items:
+            additionalProperties:
+              type: string
+            example:
+              date: 2021/04/04
+              amount: hello world
+            type: object
+          type: array
+      required:
+      - name
+      - status
+      - user_posts
+      type: object
+    not_found:
+      properties:
+        message:
+          example: Not Found
+          type: string
+      required:
+      - message
+      type: object
+    internal_server_error:
+      properties:
+        message:
+          example: Internal Server Error
+          type: string
+      required:
+      - message
+      type: object
