@@ -1,0 +1,16 @@
+.gitignore
+.npmignore
+api.ts
+base.ts
+common.ts
+configuration.ts
+gateways/default-api.ts
+gateways/users-api.ts
+git_push.sh
+index.ts
+types/create-params.ts
+types/index.ts
+types/internal-server-error.ts
+types/not-found.ts
+types/user.ts
+types/users.ts
